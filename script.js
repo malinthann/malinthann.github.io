@@ -113,17 +113,12 @@ function waitAndResponce(inputText) {
             }, 2000);
             break;
     }
-
-
-
 }
 
 function clearChat() {
     document.getElementById("listUL").innerHTML = "";
     waitAndResponce('intro');
 }
-
-
 
 function sendTextMessage(textToSend) {
     setTimeout(setLastSeen, 1000);
@@ -146,7 +141,6 @@ function sendTextMessage(textToSend) {
     s.scrollTop = s.scrollHeight;
     playSound();
 }
-
 
 function sendResponse() {
     setTimeout(setLastSeen, 1000);
