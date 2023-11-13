@@ -57,7 +57,7 @@ nav {
     overflow-y: scroll;
     color: #fff;
     display: flex;
-    height: 88%;
+    height: 80%;
     flex-direction: column;
     background-image: url('images/bg.webp');
     align-items: flex-end;
