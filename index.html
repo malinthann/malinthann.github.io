@@ -2,57 +2,142 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:site_name"
-            content="View Malin Thann's Portfolio Website">
-        <meta property="og:title" content="Developer | Marketer">
-        <meta property="og:description"
-            content="Hello there 👋🏻, My name is Malin Thann. I am a Software Engineering student at the National University of Management👨🏻‍💻📚. I am eager to hear about potential career opportunities, so I would be pleased to chat about job openings in the engineering sphere. Send 'help' to know more about me.">
-        <meta property="og:type" content="website">
-        <meta property="og:image:type" content="image/jpeg">
-        <meta property="og:image:width" content="300">
-        <meta property="og:image:height" content="300">
-
-        <link rel="stylesheet" href="style.css"
-            integrity="your-stylesheet-integrity" crossorigin="anonymous">
-        <title>Developer | Marketer</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #241b18;
+            color: #d4a07a;
+        }
+        
+        .portfolio-container {
+            max-width: 800px;
+            width: 90%;
+            background-color: #2a201d;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            background-color: #241b18;
+            color: #d4a07a;
+            text-align: center;
+            padding: 0.1rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #2a201d;
+            padding: 0.5rem 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a,
+        section a {
+            text-decoration: none;
+            color: #d4a07a;
+            border-bottom: 1px solid rgb(255, 255, 255);
+        }
+        
+        section {
+            padding: 2rem;
+            margin-bottom: -1rem;
+        }
+        
+        section h2 {
+            margin-top: 0;
+        }
+        
+        code {
+            background-color: #453732;
+            color: #d4a07a;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #241b18;
+            color: #d4a07a;
+        }   
+    </style>
+        <title>Contact me - Malin Thann</title>
     </head>
+    <body>
+        <div class="portfolio-container">
+            <header>
+                <h1>Malin Thann</h1>
+            </header>
 
-    <body onload="startFunction()">
-        <nav>
-            <div class="navbar">
-                <img class="dpimg" onclick="openFullScreenDP()"
-                    src="images/squareDp.jpg" alt="Profile Picture">
-                <div class="personalInfo">
-                    <label id="name">Malin Thann</label>
-                    <label id="lastseen">last seen today at 3:24 PM</label>
-                </div>
-            </div>
-        </nav>
+            <section id="about-me">
+                <h2>About Me</h2>
+                <p>Hi there! I'm Malin Thann, a passionate developer and
+                    creative thinker. I
+                    love crafting meaningful digital experiences through code
+                    and design. My
+                    journey in the tech world has been an exciting adventure,
+                    and I'm always
+                    eager to learn and explore new technologies. Connect with me
+                    on social
+                    media to stay updated on my projects and insights!</p>
+            </section>
 
-        <div class="scrollable" id="myScrollable">
-            <div class="fullScreenDP" id="fullScreenDP">
-            </div>
+            <section id="github">
+                <h2><i class="fab fa-github"></i> GitHub</h2>
+                <p>Follow me on GitHub: <a href="https://github.com/malinthann"
+                        target="_blank">malinthann</a></p>
+            </section>
 
-            <div id="chatting" class="chatting">
-                <ul id="listUL"></ul>
-            </div>
+            <section id="facebook">
+                <h2><i class="fab fa-facebook"></i> Facebook</h2>
+                <p>Connect with me on Facebook: <a
+                        href="https://www.facebook.com/KeepDigging.HereIsMore"
+                        target="_blank">ថាន់
+                        ម៉ាលីន</a></p>
+            </section>
+
+            <section id="instagram">
+                <h2><i class="fab fa-instagram"></i> Instagram</h2>
+                <p>Follow me on Instagram: <a
+                        href="https://instagram.com/_linmaa?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+                        target="_blank">@_linmaa</a></p>
+            </section>
+
+            <section id="twitter">
+                <h2><i class="fab fa-twitter"></i> Twitter</h2>
+                <p>Follow me on Twitter: <a
+                        href="https://twitter.com/malin_thann"
+                        target="_blank">malin_thann</a></p>
+            </section>
+
+            <section id="telegram">
+                <h2><i class="fab fa-telegram"></i> Telegram</h2>
+                <p>Contact me on Telegram: <a href="https://t.me/malinthann"
+                        target="_blank">malinthann</a></p>
+            </section>
+
+            <section id="gmail">
+                <h2><i class="far fa-envelope"></i> Gmail</h2>
+                <p>Email me at: <a href="mailto:malinthann99@gmail.com">malinthann99@gmail.com</a></p>
+            </section>
+
+            <footer>
+                <p>&copy; 2023 Malin Thann. All rights reserved.</p>
+            </footer>
         </div>
-
-        <footer>
-            <div class="sendBar">
-                <input id="inputMSG" onkeypress="isEnter(event)" type="text"
-                    placeholder="Type a message" autofocus>
-                <svg onclick="sendMsg()" viewBox="0 0 24 24" width="24"
-                    height="24">
-                    <path fill="currentColor"
-                        d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
-                </svg>
-            </div>
-        </footer>
-
-        <script src="script.js" integrity="your-script-integrity"
-            crossorigin="anonymous"></script>
     </body>
 </html>
