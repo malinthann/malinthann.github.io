@@ -1,211 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #241b18;
-            color: #d4a07a;
-            font-size: 16px;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #241b18;
+        color: #d4a07a;
+        font-size: 16px;
+      }
 
-        .portfolio-container {
-            max-width: 800px;
-            width: 90%;
-            background-color: #2a201d;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            overflow: hidden;
+      .portfolio-container {
+        max-width: 800px;
+        width: 90%;
+        background-color: #2a201d;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      header {
+        background-color: #241b18;
+        color: #d4a07a;
+        text-align: center;
+        padding: 0.5rem 0;
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        background-color: #2a201d;
+        padding: 0.5rem 0;
+      }
+
+      nav li {
+        margin: 0 1rem;
+      }
+
+      nav a,
+      section a {
+        text-decoration: none;
+        color: #d4a07a;
+        border-bottom: 1px solid rgb(255, 255, 255);
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        opacity: 0;
+        animation: slideIn 1s ease forwards, rotateScale 1s ease forwards;
+      }
+
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      section {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        opacity: 0;
+        animation: fadeInScale 1s ease forwards;
+      }
+
+      section:nth-child(odd) {
+        animation-delay: 0.2s;
+      }
+
+      section:nth-child(even) {
+        animation-delay: 0.4s;
+      }
+
+      section h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      code {
+        background-color: #453732;
+        color: #d4a07a;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        background-color: #241b18;
+        color: #d4a07a;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
         }
 
         header {
-            background-color: #241b18;
-            color: #d4a07a;
-            text-align: center;
-            padding: 0.5rem 0;
-            font-size: 1.5rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            background-color: #2a201d;
-            padding: 0.5rem 0;
-        }
-
-        nav li {
-            margin: 0 1rem;
+          font-size: 1.2rem;
         }
 
         nav a,
         section a {
-            text-decoration: none;
-            color: #d4a07a;
-            border-bottom: 1px solid rgb(255, 255, 255);
-            font-size: 0.9rem;
-        }
-
-        section {
-            padding: 1rem;
-            margin-bottom: -1rem;
-            opacity: 0;
-            animation: slideIn 1s ease forwards, rotateScale 1s ease forwards;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes rotateScale {
-            from {
-                transform: rotate(-10deg) scale(0.8);
-            }
-            to {
-                transform: rotate(0deg) scale(1);
-            }
-        }
-
-        section:nth-child(odd) {
-            animation-delay: 0.2s;
-        }
-
-        section:nth-child(even) {
-            animation-delay: 0.4s;
+          font-size: 0.8rem;
         }
 
         section h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-        }
-
-        code {
-            background-color: #453732;
-            color: #d4a07a;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
+          font-size: 1rem;
         }
 
         footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #241b18;
-            color: #d4a07a;
-            font-size: 0.8rem;
+          font-size: 0.7rem;
         }
-
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            header {
-                font-size: 1.2rem;
-            }
-
-            nav a,
-            section a {
-                font-size: 0.8rem;
-            }
-
-            section h2 {
-                font-size: 1rem;
-            }
-
-            footer {
-                font-size: 0.7rem;
-            }
-        }
+      }
     </style>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <title>Malin Thann</title>
-</head>
-<body>
-<div class="portfolio-container">
-    <header>
-        <h1>Malin Thann</h1>
-    </header>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+            rel="stylesheet" />
+        <title>Malin Thann</title>
+    </head>
+    <body>
+        <div class="portfolio-container">
+            <header>
+                <h1>Malin Thann</h1>
+            </header>
 
-    <section id="about-me">
-        <h2>About Me</h2>
-        <p>Hi there! I'm Malin Thann, a passionate developer and
-            creative thinker. I
-            love crafting meaningful digital experiences through code
-            and design. My
-            journey in the tech world has been an exciting adventure,
-            and I'm always
-            eager to learn and explore new technologies. Connect with me
-            on social
-            media to stay updated on my projects and insights!</p>
-    </section>
+            <section id="about-me">
+                <h2>About Me</h2>
+                <p>Hey there! I'm Malin, a passionate developer, creative
+                    thinker, and digital marketer. I absolutely love crafting
+                    meaningful digital experiences through code, design, and
+                    strategic marketing efforts. My journey in the tech and
+                    marketing world has been one big exciting adventure, and I'm
+                    always eager to learn and explore new technologies and
+                    strategies. Let's connect on social media to stay updated on
+                    my projects and share some awesome insights together!</p>
+            </section>
 
-    <section id="github">
-        <h2><i class="fab fa-github"></i> GitHub</h2>
-        <p>Follow me on GitHub: <a href="https://github.com/malinthann"
-                                    target="_blank">malinthann</a></p>
-    </section>
+            <section id="linkedin">
+                <h2><i class="fab fa-linkedin"></i> LinkedIn</h2>
+                <p>
+                    Connect with me on LinkedIn:
+                    <a href="https://www.linkedin.com/in/malin-thann"
+                        target="_blank">Malin Thann</a>
+                </p>
+            </section>
 
-    <section id="facebook">
-        <h2><i class="fab fa-facebook"></i> Facebook</h2>
-        <p>Connect with me on Facebook: <a
-                    href="https://www.facebook.com/ThannMalinn"
-                    target="_blank">Malin Thann</a></p>
-    </section>
+            <section id="github">
+                <h2><i class="fab fa-github"></i> GitHub</h2>
+                <p>
+                    Follow me on GitHub:
+                    <a href="https://github.com/malinthann"
+                        target="_blank">malinthann</a>
+                </p>
+            </section>
 
-    <section id="instagram">
-        <h2><i class="fab fa-instagram"></i> Instagram</h2>
-        <p>Follow me on Instagram: <a
-                    href="https://instagram.com/_linmaa?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
-                    target="_blank">@_linmaa</a></p>
-    </section>
+            <section id="facebook">
+                <h2><i class="fab fa-facebook"></i> Facebook</h2>
+                <p>
+                    Connect with me on Facebook:
+                    <a href="https://www.facebook.com/ThannMalinn"
+                        target="_blank">Malin Thann</a>
+                </p>
+            </section>
 
-    <section id="twitter">
-        <h2><i class="fab fa-twitter"></i> Twitter</h2>
-        <p>Follow me on Twitter: <a
-                    href="https://twitter.com/malin_thann"
-                    target="_blank">malin_thann</a></p>
-    </section>
+            <section id="instagram">
+                <h2><i class="fab fa-instagram"></i> Instagram</h2>
+                <p>
+                    Follow me on Instagram:
+                    <a
+                        href="https://instagram.com/_linmaa?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+                        target="_blank">@_linmaa</a>
+                </p>
+            </section>
 
-    <section id="telegram">
-        <h2><i class="fab fa-telegram"></i> Telegram</h2>
-        <p>Contact me on Telegram: <a href="https://t.me/malinthann"
-                                      target="_blank">malinthann</a></p>
-    </section>
+            <section id="twitter">
+                <h2><i class="fab fa-twitter"></i> Twitter</h2>
+                <p>
+                    Follow me on Twitter:
+                    <a href="https://twitter.com/malin_thann"
+                        target="_blank">malin_thann</a>
+                </p>
+            </section>
 
-    <section id="gmail">
-        <h2><i class="far fa-envelope"></i> Gmail</h2>
-        <p>Email me at: <a
-                    href="mailto:thannmalin">thannmalin@gmail.com</a></p>
-    </section>
+            <section id="telegram">
+                <h2><i class="fab fa-telegram"></i> Telegram</h2>
+                <p>
+                    Contact me on Telegram:
+                    <a href="https://t.me/malinthann"
+                        target="_blank">malinthann</a>
+                </p>
+            </section>
 
-    <footer>
-        <p>&copy; <span id="currentYear"></span> Malin Thann. All rights
-            reserved.</p>
-    </footer>
-</div>
+            <section id="gmail">
+                <h2><i class="far fa-envelope"></i> Gmail</h2>
+                <p>Email me at: <a
+                        href="mailto:thannmalin@gmail.com">thannmalin@gmail.com</a></p>
+            </section>
 
-<script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+            <footer>
+                <p>
+                    &copy; <span id="currentYear"></span> Malin Thann. All
+                    rights
+                    reserved.
+                </p>
+            </footer>
+        </div>
 
-</body>
+        <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+    </body>
 </html>
