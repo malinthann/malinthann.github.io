@@ -1,213 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #241b18;
+        color: #d4a07a;
+        font-size: 16px;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toDo - List</title>
-    <style>
-        * {
-            box-sizing: border-box;
+      .portfolio-container {
+        max-width: 800px;
+        width: 90%;
+        background-color: #2a201d;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      header {
+        background-color: #241b18;
+        color: #d4a07a;
+        text-align: center;
+        padding: 0.5rem 0;
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        background-color: #2a201d;
+        padding: 0.5rem 0;
+      }
+
+      nav li {
+        margin: 0 1rem;
+      }
+
+      nav a,
+      section a {
+        text-decoration: none;
+        color: #d4a07a;
+        border-bottom: 1px solid rgb(255, 255, 255);
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        opacity: 0;
+        animation: slideIn 1s ease forwards, rotateScale 1s ease forwards;
+      }
+
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
         }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
+      section {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        opacity: 0;
+        animation: fadeInScale 1s ease forwards;
+      }
+
+      section:nth-child(odd) {
+        animation-delay: 0.2s;
+      }
+
+      section:nth-child(even) {
+        animation-delay: 0.4s;
+      }
+
+      section h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      code {
+        background-color: #453732;
+        color: #d4a07a;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        background-color: #241b18;
+        color: #d4a07a;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          font-size: 14px;
         }
 
-        h1 {
-            color: #007bff;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease;
+        header {
+          font-size: 1.2rem;
         }
 
-        form {
-            display: flex;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease;
+        nav a,
+        section a {
+          font-size: 0.8rem;
         }
 
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-            border: 2px solid #007bff;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            transition: border-color 0.3s ease;
+        section h2 {
+          font-size: 1rem;
         }
 
-        input[type="text"]:focus {
-            border-color: #0056b3;
+        footer {
+          font-size: 0.7rem;
         }
-
-        button[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        li {
-            background-color: #fff;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            animation: fadeIn 1s ease;
-        }
-
-        li span {
-            flex-grow: 1;
-            margin-right: 10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        li.completed span {
-            text-decoration: line-through;
-        }
-
-        li .delete-btn {
-            padding: 5px 10px;
-            font-size: 14px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        li .delete-btn:hover {
-            background-color: #c82333;
-        }
-
-        .empty-message {
-            color: #888;
-            display: none;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
+      }
     </style>
-</head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+            rel="stylesheet" />
+        <title>Malin Thann</title>
+    </head>
+    <body>
+        <div class="portfolio-container">
+            <header>
+                <h1>Malin Thann</h1>
+            </header>
 
-<body>
-    <h1>toDo - List</h1>
+            <section id="about-me">
+                <h2>About Me</h2>
+                <p>Hey there! I'm Malin, a passionate developer, creative
+                    thinker, and digital marketer. I absolutely love crafting
+                    meaningful digital experiences through code, design, and
+                    strategic marketing efforts. My journey in the tech and
+                    marketing world has been one big exciting adventure, and I'm
+                    always eager to learn and explore new technologies and
+                    strategies. Let's connect on social media to stay updated on
+                    my projects and share some awesome insights together!</p>
+            </section>
 
-    <form>
-        <input type="text" id="taskInput" placeholder="Add a new evil task">
-        <button type="submit">Add</button>
-    </form>
+            <section id="linkedin">
+                <h2><i class="fab fa-linkedin"></i> LinkedIn</h2>
+                <p>
+                    Connect with me on LinkedIn:
+                    <a href="https://www.linkedin.com/in/malin-thann"
+                        target="_blank">Malin Thann</a>
+                </p>
+            </section>
 
-    <ul id="taskList"></ul>
-    <p id="emptyMessage" class="empty-message">No tasks found.</p>
+            <section id="github">
+                <h2><i class="fab fa-github"></i> GitHub</h2>
+                <p>
+                    Follow me on GitHub:
+                    <a href="https://github.com/malinthann"
+                        target="_blank">malinthann</a>
+                </p>
+            </section>
 
-    <script>
-        const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            <section id="facebook">
+                <h2><i class="fab fa-facebook"></i> Facebook</h2>
+                <p>
+                    Connect with me on Facebook:
+                    <a href="https://www.facebook.com/ThannMalinn"
+                        target="_blank">Malin Thann</a>
+                </p>
+            </section>
 
-        storedTasks.forEach((task) => {
-            renderTask(task);
-        });
+            <section id="instagram">
+                <h2><i class="fab fa-instagram"></i> Instagram</h2>
+                <p>
+                    Follow me on Instagram:
+                    <a
+                        href="https://instagram.com/_linmaa?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+                        target="_blank">@_linmaa</a>
+                </p>
+            </section>
 
-        document.querySelector("form").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const taskInput = document.getElementById("taskInput");
-            const newTask = taskInput.value.trim();
-            if (newTask === "") return;
+            <section id="twitter">
+                <h2><i class="fab fa-twitter"></i> Twitter</h2>
+                <p>
+                    Follow me on Twitter:
+                    <a href="https://twitter.com/malin_thann"
+                        target="_blank">malin_thann</a>
+                </p>
+            </section>
 
-            const task = {
-                id: Date.now(),
-                name: newTask,
-                completed: false,
-            };
+            <section id="telegram">
+                <h2><i class="fab fa-telegram"></i> Telegram</h2>
+                <p>
+                    Contact me on Telegram:
+                    <a href="https://t.me/malinthann"
+                        target="_blank">malinthann</a>
+                </p>
+            </section>
 
-            storedTasks.push(task);
-            localStorage.setItem("tasks", JSON.stringify(storedTasks));
+            <section id="gmail">
+                <h2><i class="far fa-envelope"></i> Gmail</h2>
+                <p>Email me at: <a
+                        href="mailto:thannmalin@gmail.com">thannmalin@gmail.com</a></p>
+            </section>
 
-            renderTask(task);
+            <footer>
+                <p>
+                    &copy; <span id="currentYear"></span> Malin Thann. All
+                    rights
+                    reserved.
+                </p>
+            </footer>
+        </div>
 
-            taskInput.value = "";
-
-            const emptyMessage = document.getElementById("emptyMessage");
-            emptyMessage.style.display = "none";
-        });
-
-        function renderTask(task) {
-            const listItem = document.createElement("li");
-            listItem.setAttribute("data-id", task.id);
-            listItem.classList.add(task.completed ? "completed" : null);
-            listItem.innerHTML = `
-            <input type="checkbox" ${task.completed ? 'checked' : ''}>
-            <span>${task.name}</span>
-            <button class="delete-btn">Delete</button>
-          `;
-            document.getElementById("taskList").appendChild(listItem);
-
-            const checkbox = listItem.querySelector('input[type="checkbox"]');
-            checkbox.addEventListener('change', function () {
-                const taskId = parseInt(listItem.getAttribute("data-id"));
-                const taskIndex = storedTasks.findIndex(t => t.id === taskId);
-                storedTasks[taskIndex].completed = checkbox.checked;
-                localStorage.setItem("tasks", JSON.stringify(storedTasks));
-                listItem.classList.toggle("completed");
-            });
-
-            const deleteBtn = listItem.querySelector(".delete-btn");
-            deleteBtn.addEventListener("click", function () {
-                const taskId = parseInt(listItem.getAttribute("data-id"));
-                storedTasks.splice(storedTasks.findIndex(t => t.id === taskId), 1);
-                localStorage.setItem("tasks", JSON.stringify(storedTasks));
-                listItem.remove();
-                checkEmpty();
-            });
-        }
-
-        function checkEmpty() {
-            const taskList = document.getElementById("taskList");
-            const emptyMessage = document.getElementById("emptyMessage");
-            if (taskList.children.length === 0) {
-                emptyMessage.style.display = "block";
-            } else {
-                emptyMessage.style.display = "none";
-            }
-        }
-
-        checkEmpty();
+        <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
     </script>
-</body>
-
+    </body>
 </html>
